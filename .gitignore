@@ -5,5 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 public/
-package-lock.json
-yarn.lock
+# package-lock.json
+# yarn.lock
+.firebase
+.angular
