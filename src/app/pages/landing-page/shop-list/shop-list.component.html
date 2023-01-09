@@ -1,0 +1,41 @@
+<div class="header bg-white">
+    <div class="d-flex align-items-center">
+        <img src="assets/image/logo-mobi.png" class="w-auto" alt="">
+        <p class="logo-text">SHARE TO EARN</p>
+    </div>
+    <div class="d-flex align-items-center">
+        <img src="assets/image/profile.png" class="avatar" alt="">
+        <strong class="my-0 mx-2">Login</strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </div>
+</div>
+
+<div class="position-relative">
+    <img src="assets/image/slide.png" class="w-100" alt="">
+
+    <div class="slide-content">
+        <p class="title">
+            Create new entrepreneurs. <br>
+            Earn more than just commission.
+        </p>
+
+        <p class="title-2">Become a ShareToEarn Affiliate now!</p>
+
+        <button class="btn-primary border-0 my-3">Register now</button>
+
+        <div class="d-flex mt-4">
+            <p>You are Business >> Login <a href="#" class="text-gray">here</a></p>
+            <p class="mx-5">You are Customer >> Login <a href="#" class="text-gray">here</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <app-shop-item *ngFor="let item of [1,2,3,4]"></app-shop-item>
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+        [directionLinks]="false" [rotate]="true">
+    </ngb-pagination>
+</div>

@@ -1,0 +1,108 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex gap-3">
+            <div class="tab-primary" [class.tab-active]="tab === 1" (click)="changeTab(1)">
+                Item list
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 2" (click)="changeTab(2)">
+                Restricted list
+            </div>
+        </div>
+        <div class="btn-primary d-none d-sm-block" type="button" routerLink="/product/create-link">
+            Create link
+        </div>
+    </div>
+
+    <div class="card" *ngIf="tab===1">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Type</th>
+                        <th>Brand</th>
+                        <th>Entity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data" routerLink="/product/detail">
+                        <td>
+                            <img class="image" src="assets/image/photo.png" alt=""> Bộ chăm sóc da mặt Neauthy Falue
+                            licin Scream
+                        </td>
+                        <td>Product</td>
+                        <td>Neauthy Skincare</td>
+                        <td>Neauthy store HCM city</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div>
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                        size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="tab===2">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Type</th>
+                        <th>Brand</th>
+                        <th>Entity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>
+                            <img class="image" src="assets/image/photo.png" alt=""> Bộ chăm sóc da mặt Neauthy Falue
+                            licin Scream
+                        </td>
+                        <td>Product</td>
+                        <td>Neauthy Skincare</td>
+                        <td>Neauthy store HCM city</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div>
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                        size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+.mat-slide-toggle-bar {
+    width: 40px !important;
+    height: 20px !important;
+    border-radius: 35px !important;
+}
+
+.mat-slide-toggle-thumb {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #F27449;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: white;
+}
+
+.mat-slide-toggle-thumb-container {
+    top: 3px !important;
+    left: 4px !important;
+}
+
+.accordion-item {
+    border: none;
+
+    .accordion-button:not(.collapsed) {
+        background-color: white;
+    }
+}
+
+.accordion-item {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.accordion-button:focus {
+    border: none;
+    box-shadow: none
+}
+
+.page-link {
+    border: none;
+    color: #979797;
+    margin: 0 3px;
+
+    &:focus,
+    &:hover {
+        box-shadow: none;
+        border-radius: 4px;
+        color: #979797;
+        margin: 0 3px;
+    }
+}
+
+.pagination {
+    margin-bottom: 0 !important;
+}
+
+.page-link.active,
+.active>.page-link {
+    background: #EBEBEB;
+    border-radius: 4px;
+    border: none;
+    color: #979797;
+}
+
+.search {
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+}
+
+.table {
+    .image {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+
+    thead {
+        background-color: #FAFAFA;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+
+    tr {
+        border-color: #F1F1F1;
+    }
+
+    .text-small {
+        color: #979797;
+        font-size: 12px;
+    }
+
+    .page {
+        border: 1px solid #D9D9D9;
+        border-radius: 4px;
+        text-align: center;
+        margin-right: 20px;
+    }
+}
+
+.btn-columns {
+    padding: 10px;
+    border: 1px solid #F1F1F1;
+    color: #979797;
+    border-radius: 4px;
+
+    img {
+        margin-left: 10px;
+    }
+}
+
+.accordion-body-item {
+    color: #333333;
+    padding: 10px;
+}
+
+hr {
+    margin: 0;
+}
+  
+@media (max-width: 768px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+}

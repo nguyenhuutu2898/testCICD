@@ -1,0 +1,52 @@
+.header {
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-text {
+    color: #F27449;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+
+.slide-content {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    padding: 10px 50px;
+    // width: 100%;
+    // height: 100%;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 56px;
+}
+
+.title-2 {
+    font-size: 24px;
+    line-height: 48px;
+    color: #4A4A4A;
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.text-gray {
+    color: #4A4A4A;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}

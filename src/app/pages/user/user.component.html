@@ -1,0 +1,129 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex gap-3">
+            <div class="tab-primary" [class.tab-active]="tab === 1" (click)="changeTab(1)">
+                User detail
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 2" (click)="changeTab(2)">
+                Wallet
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 3" (click)="changeTab(3)">
+                Link list
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 4" (click)="changeTab(4)">
+                Logs
+            </div>
+        </div>
+        <div class="btn-primary d-none d-sm-block" type="button">
+            Edit
+        </div>
+    </div>
+
+    <div class="card" *ngIf="tab===1">
+        
+    </div>
+    <div class="card" *ngIf="tab===2">
+        
+    </div>
+    <div class="card" *ngIf="tab===3">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>Link</th>
+                        <th>Item name</th>
+                        <th>Slug</th>
+                        <th>Entity</th>
+                        <th>Created at</th>
+                        <th>Start time</th>
+                        <th>End time</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>
+                            <a href="http://www.alphacom.io/">http://www.alphacom.io/</a>
+                        </td>
+                        <td>Iphone 14 Pro</td>
+                        <td>al-pla-com</td>
+                        <td>Apple store</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>
+                            <mat-slide-toggle></mat-slide-toggle>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div>
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                        size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="tab===4">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">Time</th>
+                        <th>User</th>
+                        <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td class="text-center">
+                            <strong>Jun 16 2022</strong> <br>
+                            09:21:00
+                        </td>
+                        <td>
+                            <img class="image" src="assets/image/photo.png" alt=""> George Warren
+                        </td>
+                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div>
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                        size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>

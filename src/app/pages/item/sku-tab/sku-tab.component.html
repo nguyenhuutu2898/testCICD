@@ -1,0 +1,594 @@
+<div class="row">
+    <div class="col-md-3 col-sm-12">
+        <div class="card">
+            <div class="d-flex justify-content-between border-bottom">
+                <h3 class="title">SKU Name</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                </svg>
+            </div>
+
+            <div class="mt-3">
+                <h4 class="title2">Attribute options</h4>
+
+                <div class="row">
+                    <div class="col-5">
+                        <p class="label">Size</p>
+                    </div>
+                    <div class="col-7">
+                        <p>256GB</p>
+                    </div>
+
+                    <div class="col-5">
+                        <p class="label">Color</p>
+                    </div>
+                    <div class="col-7">
+                        <p>Gold</p>
+                    </div>
+
+                    <div class="col-5">
+                        <p class="label">Serri</p>
+                    </div>
+                    <div class="col-7">
+                        <p>3</p>
+                    </div>
+
+                    <div class="col-5">
+                        <p class="label">Material</p>
+                    </div>
+                    <div class="col-7">
+                        <p>Diamond</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="title2">Image</h4>
+
+                <div class="row">
+                    <div *ngFor="let item of images.slice(0, 11); let i = index"
+                        class="col-md-4 p-1 col-sm-4 position-relative">
+                        <img [src]="item" class="photo" alt="">
+                        <div *ngIf="i === 16" class="image-opacity">
+                            <p class="text-residual"> + {{images.slice(11).length +1}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-1 col-sm-4">
+                        <div class="btn-add photo" type="button" (click)="file.click()">
+                            <img src="assets/image/icon-add.png" alt="">
+                            <input class="d-none" type="file" multiple="multiple" id="file" accept="image/*" #file
+                                (change)="handleFileInput($event)">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-12">
+        <div class="card">
+            <div class="">
+                <div class="d-flex justify-content-between">
+                    <h3 class="title">Unit 1</h3>
+                    <div class="d-flex align-items-center">
+                        <h3 class="my-0 mx-2">Default</h3>
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                <div class="table mt-4">
+                    <table class="table centerTable">
+                        <thead>
+                            <tr>
+                                <th colspan="3">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="my-0">Price</p>
+                                        <small class="my-0">VND</small>
+                                    </div>
+                                </th>
+                                <th>Priority</th>
+                                <th>Publishing </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of array">
+                            <tr (click)="onSelectPrice(item.id)">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="checkbox "
+                                            [ngClass]="selectedId === item.id ? 'checkbox-active': ''">
+                                            <div class="dot"></div>
+                                        </div>
+                                        <svg *ngIf="selectedId === item.id; else down"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-caret-down-fill mx-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                        </svg>
+                                        <ng-template #down>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-caret-up-fill mx-2"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                            </svg>
+                                        </ng-template>
+
+                                        {{item.name}}
+
+                                    </div>
+                                </td>
+                                <td *ngIf="selectedId !== item.id">Whole sale by range</td>
+                                <td class="text-end" *ngIf="selectedId !== item.id">10.000.000</td>
+                                <td *ngIf="selectedId !== item.id"></td>
+                                <td *ngIf="selectedId !== item.id">From 04-04-1991 | to 04-04-1991</td>
+
+                            </tr>
+                            <p *ngIf="selectedId === item.id" class="title3">Price Default</p>
+
+                            <tr *ngIf="selectedId === item.id" class="expanded-panel">
+                                <td colspan="3">
+                                    <div style="padding-left: 30px;">
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Price type</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Retails</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Min Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">SKU Price</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Max Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Commission</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2">
+                                            <div class="col-6">
+                                                <p class="label mb-0">Seller margin</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        % <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-chevron-down"
+                                                            viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="label mb-0">Final price</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        VND
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td class="text-center">1</td>
+                                <td>
+                                    <div>
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+
+                                        <br>
+
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <p *ngIf="selectedId === item.id" class="title3">Adjust Price Default 2</p>
+
+                            <tr *ngIf="selectedId === item.id" class="expanded-panel">
+                                <td colspan="3">
+                                    <div style="padding-left: 30px;">
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Price type</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Retails</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Min Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">SKU Price</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Max Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Commission</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2">
+                                            <div class="col-6">
+                                                <p class="label mb-0">Seller margin</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        % <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-chevron-down"
+                                                            viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="label mb-0">Final price</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        VND
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td class="text-center">1</td>
+                                <td>
+                                    <div>
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+
+                                        <br>
+
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="">
+                <div class="d-flex justify-content-between">
+                    <h3 class="title">Unit 2</h3>
+                    <div class="d-flex align-items-center">
+                        <h3 class="my-0 mx-2">Default</h3>
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                <div class="table mt-4">
+                    <table class="table centerTable">
+                        <thead>
+                            <tr>
+                                <th colspan="3">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="my-0">Price</p>
+                                        <small class="my-0">VND</small>
+                                    </div>
+                                </th>
+                                <th>Priority</th>
+                                <th>Publishing </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of array">
+                            <tr (click)="onSelectPrice(item.id)">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="checkbox "
+                                            [ngClass]="selectedId === item.id ? 'checkbox-active': ''">
+                                            <div class="dot"></div>
+                                        </div>
+                                        <svg *ngIf="selectedId === item.id; else down"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-caret-down-fill mx-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                        </svg>
+                                        <ng-template #down>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-caret-up-fill mx-2"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                            </svg>
+                                        </ng-template>
+
+                                        {{item.name}}
+
+                                    </div>
+                                </td>
+                                <td *ngIf="selectedId !== item.id">Whole sale by range</td>
+                                <td class="text-end" *ngIf="selectedId !== item.id">10.000.000</td>
+                                <td *ngIf="selectedId !== item.id"></td>
+                                <td *ngIf="selectedId !== item.id">From 04-04-1991 | to 04-04-1991</td>
+
+                            </tr>
+                            <p *ngIf="selectedId === item.id" class="title3">Price Default</p>
+
+                            <tr *ngIf="selectedId === item.id" class="expanded-panel">
+                                <td colspan="3">
+                                    <div style="padding-left: 30px;">
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Price type</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Retails</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Min Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">SKU Price</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Max Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Commission</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2">
+                                            <div class="col-6">
+                                                <p class="label mb-0">Seller margin</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        % <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-chevron-down"
+                                                            viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="label mb-0">Final price</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        VND
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td class="text-center">1</td>
+                                <td>
+                                    <div>
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+
+                                        <br>
+
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <p *ngIf="selectedId === item.id" class="title3">Adjust Price Default 2</p>
+
+                            <tr *ngIf="selectedId === item.id" class="expanded-panel">
+                                <td colspan="3">
+                                    <div style="padding-left: 30px;">
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Price type</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Retails</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Min Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">SKU Price</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Max Margin</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mt-3">
+                                            <div class="col-5">
+                                                <p class="label">Commission</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>90.000.000 VND</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2">
+                                            <div class="col-6">
+                                                <p class="label mb-0">Seller margin</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        % <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-chevron-down"
+                                                            viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="label mb-0">Final price</p>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control"
+                                                        style="padding-right: 40px;">
+                                                    <div class="icon-input">
+                                                        VND
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td class="text-center">1</td>
+                                <td>
+                                    <div>
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+
+                                        <br>
+
+                                        <span class="label">From</span> 04-04-1991 <span class="mx-3">|</span> <span
+                                            class="label">to</span> 04-04-1991
+                                        <p class="text2">Schedule</p>
+                                        <p>Every 3 weeks on Monday</p>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

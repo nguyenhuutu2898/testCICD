@@ -1,0 +1,43 @@
+.image {
+    width: 100%;
+    max-height: 270px;
+    border-radius: 4px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 0;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #F27449;
+}
+
+.cost {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    text-decoration-line: line-through;
+    color: #979797;
+}
+
+.text-new {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    color: #F27449;
+    margin-bottom: 0;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #707070;
+}

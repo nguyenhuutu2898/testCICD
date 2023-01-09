@@ -1,0 +1,82 @@
+.content {
+    width: 888px;
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F5F5;
+}
+
+.password {
+    padding-right: 30px;
+}
+
+label {
+    font-size: 14px;
+    line-height: 22px;
+    color: #979797;
+    margin-top: 10px;
+}
+
+.text-policy {
+    margin-bottom: 0;
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #979797;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #F27449;
+    text-align: center;
+}
+
+.text-forgot {
+    font-size: 14px;
+    line-height: 22px;
+    color: #707070;
+    text-align: right;
+}
+
+.text-required {
+    color: #FC4E4E;
+}
+
+.btn-hide {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.text-login {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #F27449;
+}
+
+.text-already {
+    font-size: 14px;
+    line-height: 22px;
+    color: #707070;
+    margin-top: 30px;
+}
+
+.icon-down {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

@@ -1,0 +1,15 @@
+.card .row {
+    border-bottom: 1px solid #F1F1F1;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.images {
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+        border-radius: 4px;
+        width: 15%;
+    }
+}

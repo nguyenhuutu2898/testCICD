@@ -1,0 +1,211 @@
+<div class="row p-3 h-100">
+    <div class="col-md-10 col-sm-12" *ngIf="page===1">
+        <div class="card">
+            <p class="title">General infomation</p>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <form action="">
+                        <div>
+                            <p class="label mt-3 mb-0">Item ID</p>
+                            <input class="form-control" placeholder="KFI47214614619" type="text">
+                        </div>
+
+                        <div>
+                            <p class="label mt-3 mb-0">Item name</p>
+                            <input class="form-control" placeholder="Iphone 14" type="text">
+                        </div>
+
+                        <div>
+                            <p class="label mt-3 mb-0">Link</p>
+                            <input class="form-control" placeholder="http://www.alphacom.io/seller-link/sku-aothun"
+                                type="text">
+                        </div>
+
+                        <div>
+                            <p class="label mt-3 mb-0">Link shorten</p>
+                            <input class="form-control" placeholder="http://www.alphacom.io/" type="text">
+                        </div>
+
+                        <div>
+                            <p class="label mt-3 mb-0">Time</p>
+                            <input class="form-control" type="date">
+                        </div>
+                        <div class="d-flex mt-3 align-items-center justify-content-between">
+                            <p class="label mb-0">Status</p>
+                            <mat-slide-toggle></mat-slide-toggle>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <p class="label">Image</p>
+
+                    <div class="row">
+                        <div *ngFor="let item of images.slice(0, 17); let i = index"
+                            class="col-md-2 p-1 col-sm-4 position-relative">
+                            <img [src]="item" class="photo" alt="">
+                            <div *ngIf="i === 16" class="image-opacity">
+                                <p class="text-residual"> + {{images.slice(17).length +1}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 p-1 col-sm-4">
+                            <div class="btn-add photo" type="button" (click)="file.click()">
+                                <img src="assets/image/icon-add.png" alt="">
+                                <input class="d-none" type="file" multiple="multiple" id="file" accept="image/*" #file
+                                    (change)="handleFileInput($event)">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="page===2">
+        <div class="text-end">
+            <button class="btn-primary border-0 mb-3" (click)="open(content)">Add SKU</button>
+        </div>
+        <div class="card">
+            <div class="d-flex justify-content-between">
+                <div class="btn-columns">
+                    <span>Columns displayed</span>
+                    <img src="assets/image/columns-displayed.png" alt="">
+                </div>
+
+                <div class="search">
+                    <img class="mx-3" src="assets/image/search.svg" alt="">
+                    <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+                </div>
+            </div>
+
+            <div class="table mt-4">
+                <table class="table centerTable">
+                    <thead>
+                        <tr>
+                            <th>SKU name</th>
+                            <th>Attribute Options</th>
+                            <th>Barcode</th>
+                            <th>Price</th>
+                            <th>Final price</th>
+                            <th>Active</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="!skuData.length">
+                            <td colspan="6" class="text-add">
+                                <p class="text-small my-0">There's no any SKU</p>
+
+                                <div type="button" (click)="open(content)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg> Add SKU
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr *ngFor="let item of skuData">
+                            <td>
+                                <img class="image" src="assets/image/photo.png" alt=""> Iphone 14 Pro
+                            </td>
+                            <td>Gold, 7in, 256GB</td>
+                            <td>Product</td>
+                            <td>36.000.000</td>
+                            <td>36.000.000</td>
+                            <td>
+                                <mat-slide-toggle></mat-slide-toggle>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end align-items-center">
+                    <div>
+                        <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                            size="7" id="">
+                    </div>
+                    <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page"
+                        [maxSize]="3" [directionLinks]="false" [rotate]="true">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="page===3">
+        <app-sku-tab></app-sku-tab>
+    </div>
+    <div class="footer">
+        <p class="m-0"> {{'<'}} Link list </p>
+                <div class="action">
+                    <div class="btn-default mx-2" type="button" routerLink="/product">
+                        Cancel
+                    </div>
+                    <div *ngIf="page===1" class="btn-default btn-create" type="button" (click)="page=2">
+                        Next
+                    </div>
+                    <div *ngIf="page===2" (click)="page=1" type="button" class="btn-default">
+                        Back
+                    </div>
+                    <div *ngIf="page===2" type="button" class="btn-default btn-create mx-2">
+                        Create
+                    </div>
+                    <div *ngIf="page===3" type="button" (click)="onSave()" class="btn-default btn-create mx-2">
+                        Save
+                    </div>
+                </div>
+
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <!-- <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div> -->
+    <div class="modal-body">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text" class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>SKU name</th>
+                        <th>Attribute Options</th>
+                        <th>Barcode</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data" (click)="onSelectSKU(item);modal.dismiss('Cross click') ">
+                        <td>
+                            <img class="image" src="assets/image/photo.png" alt=""> Iphone 14 Pro
+                        </td>
+                        <td>Gold, 7in, 256GB</td>
+                        <td>Product</td>
+                        <td>36.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div>
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name=""
+                        size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</ng-template>

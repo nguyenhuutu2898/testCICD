@@ -1,0 +1,71 @@
+.btn-primary {
+    background: #F27449;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.btn-default {
+    background: #FFFFFF;
+    border: 1px solid #F27449;
+    border-radius: 4px;
+    color: #F27449;
+    padding: 6px 24px;
+}
+
+.tab-primary {
+    padding: 8px 16px;
+    background: #F1F1F1;
+    border-radius: 50px;
+    color: #979797;
+}
+
+.tab-active {
+    background: #FFEAD1;
+    color: #F27449;
+}
+
+.card {
+    padding: 24px;
+    box-shadow: 0px 0px 9px rgba(167, 159, 158, 0.09);
+    border: none;
+    border-radius: 8px;
+}
+
+textarea:focus,
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.input-search {
+    width: 300px;
+}
+
+.label {
+    color: #979797;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.star {
+    color: #1e90ff;
+    margin: 0 1px;
+}
+
+.filled {
+    color: #F9A51A;
+}
+
+@media (max-width: 768px) {
+    .tab-primary {
+        padding: 8px 16px;
+    }
+
+    .input-search {
+        width: auto;
+    }
+
+}

@@ -1,0 +1,23 @@
+<div class="d-flex bg-light justify-content-center align-items-center w-100 h-100">
+    <div class="content row">
+        <div class="image col-6 d-none d-sm-flex">
+            <img src="assets/image/bg-forgot.png" alt="">
+        </div>
+        <div class="col-md-6 col-sm-12 px-5 d-flex justify-content-center align-items-center">
+            <div class="w-100">
+                <h2 class="title">
+                    Nhập mã OTP
+                </h2>
+                <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+                <p class="text-forgot text-center my-3">Nếu chưa nhận được, vui lòng chờ 30 giây để gửi lại!</p>
+
+                <button (click)="onSubmit()" [disabled]="otp.length !== 6"
+                    class="btn-primary w-100 border-0 py-2 my-3 text-center">
+                    Gửi
+                </button>
+                <p type="button" routerLink="/login" class="text-forgot">Trở lại đăng nhập ></p>
+            </div>
+        </div>
+    </div>
+
+</div>

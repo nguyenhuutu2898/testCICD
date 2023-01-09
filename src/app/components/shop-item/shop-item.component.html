@@ -1,0 +1,42 @@
+<div class="row p-3">
+    <div class="col-3 px-4">
+        <img src="assets/image/h&m.png" alt="" class="w-100">
+    </div>
+
+
+    <div class="content col-8">
+        <div class="d-flex align-items-center">
+            <p class="title">H&M</p>
+            <p class="type">Fashion & Shopping</p>
+        </div>
+        <div class="d-flex">
+            <ngb-rating [rate]="5" [readonly]="true" [max]="5">
+                <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+            </ngb-rating>
+            <p class="text-rate">15.370 ratings | 19.234 affiliaters | 16.234 followers</p>
+        </div>
+
+        <p class="decription">
+            H&M Group is a family of brands and businesses, making it possible for customers around the world to express
+            themselves through fashion and design, and to choose a more sustainable lifestyle. We create value for
+            people and society in general by delivering our customer offering and by developing with a focus on
+            sustainable and profitable growth.
+        </p>
+
+        <p class="text">
+            We have a ton of promotion programs for affiliater and customer as well. So welcome to join us!
+        </p>
+
+        <div class="d-flex">
+            <img src="assets/image/h&m1.png" alt="" class="image">
+            <img src="assets/image/h&m1.png" alt="" class="image mx-3">
+            <img src="assets/image/h&m1.png" alt="" class="image">
+        </div>
+    </div>
+
+    <div class="col-1 active">
+        <button [routerLink]="['/shop-detail', 'h&m']" class="border-0 btn-primary">Seller!</button>
+    </div>
+</div>

@@ -1,0 +1,364 @@
+<div class="p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex gap-3">
+            <div class="tab-primary" [class.tab-active]="tab === 1" (click)="changeTab(1)">
+                General information
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 2" (click)="changeTab(2)">
+                SKU list
+            </div>
+            <div class="tab-primary" [class.tab-active]="tab === 3" (click)="changeTab(3)">
+                Link list
+            </div>
+        </div>
+        <div class="btn-primary d-none d-sm-block" type="button" routerLink="/product/create-link">
+            Create link
+        </div>
+    </div>
+
+    <div *ngIf="tab===1" class="row">
+        <div class="col-md-3 col-sm-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 p-0 label">
+                        Entity
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        Apple
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 label">
+                        Name
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        Iphone 14 Pro
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 label">
+                        Key
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        I14
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 label">
+                        Type
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        Product
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 label">
+                        Entity
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        Apple
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 p-0 label">
+                        Branch
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0">
+                        Apple
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="label p-0">Description</p>
+                    <p class="p-0">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                        officia consequat
+                        duis enim velit mollit. </p>
+                </div>
+
+                <div class="d-flex mt-3 justify-content-between">
+                    <p class="label p-0">Active</p>
+
+                    <mat-slide-toggle></mat-slide-toggle>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 col-sm-12">
+            <div class="card">
+                <p class="label">Image</p>
+
+                <div class="images">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                    <img src="assets/image/photo.png" class="image" alt="">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 label">
+                        Policy
+                    </div>
+                    <div class="col-md-4">
+                        Fragile
+                    </div>
+                    <div class="col-md-2 label">
+                        Supplier
+                    </div>
+                    <div class="col-md-4">
+                        Vin Group
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 label">
+                        Manufacturer
+                    </div>
+                    <div class="col-md-4">
+                        China
+                    </div>
+                    <div class="col-md-2 label">
+                        Category
+                    </div>
+                    <div class="col-md-4">
+                        Category1 , Category2
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="label">
+                        Tag
+                    </p>
+                    <div class="d-flex gap-2">
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            + 9
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border-0">
+                    <p class="label">
+                        Ticket
+                    </p>
+                    <div class="d-flex gap-2">
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            Promotion
+                        </div>
+                        <div class="tab-primary tab-active">
+                            + 9
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-12">
+            <div class="card">
+                <div class="d-flex justify-content-between">
+                    <p class="label">Generic Article</p>
+                    <p class="text-right">Shirt</p>
+                </div>
+
+                <ngb-accordion [closeOthers]="true" activeIds="static-1">
+                    <ngb-panel id="static-1" label="Size">
+                        <ng-template ngbPanelContent>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="static-2" label="Color">
+                        <ng-template ngbPanelContent>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="static-3" label="Material">
+                        <ng-template ngbPanelContent>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="static-4" label="Weight">
+                        <ng-template ngbPanelContent>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                            <hr>
+                            <div class="accordion-body-item">
+                                Blue
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="tab===2">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text"  class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>SKU name</th>
+                        <th>Attribute Options</th>
+                        <th>Barcode</th>
+                        <th>Price</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>
+                            <img class="image" src="assets/image/photo.png" alt=""> Text
+                        </td>
+                        <td>Gold, 7in, 256GB</td>
+                        <td>Product</td>
+                        <td>36.000.000</td>
+                        <td>
+                            <mat-slide-toggle></mat-slide-toggle>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div >
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name="" size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="tab===3">
+        <div class="d-flex justify-content-between">
+            <div class="btn-columns">
+                <span>Columns displayed</span>
+                <img src="assets/image/columns-displayed.png" alt="">
+            </div>
+
+            <div class="search">
+                <img class="mx-3" src="assets/image/search.svg" alt="">
+                <input type="text"  class="input-search border-0 ml-3" placeholder="Search ...">
+            </div>
+        </div>
+
+        <div class="table mt-4">
+            <table class="table centerTable">
+                <thead>
+                    <tr>
+                        <th>Link</th>
+                        <th>Slug</th>
+                        <th>Created at</th>
+                        <th>Start time</th>
+                        <th>End time</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>
+                            <a href="http://www.alphacom.io/">http://www.alphacom.io/</a>
+                        </td>
+                        <td>al-pla-com</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>9:00 15/05/2022</td>
+                        <td>
+                            <mat-slide-toggle></mat-slide-toggle>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end align-items-center">
+                <div >
+                    <span class="text-small">Number of rows per page</span> <input class="page" type="text" name="" size="7" id="">
+                </div>
+                <ngb-pagination class="d-flex justify-content-end" [collectionSize]="120" [(page)]="page" [maxSize]="3"
+                    [directionLinks]="false" [rotate]="true">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>
